@@ -1,0 +1,5 @@
+sceneSetups:
+- path: D:/game/game/UnityAvater-master/Assets/ClothingChange_v1.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
