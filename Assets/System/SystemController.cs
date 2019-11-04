@@ -42,6 +42,7 @@ public class SystemController : MonoBehaviour
                 monster.GetDamage(hero.Attack());
             }
 
+
         }
         if (monster.HP <= 0)
         {

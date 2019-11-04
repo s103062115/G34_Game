@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Creature : MonoBehaviour
 {
     public string Name;
@@ -16,7 +15,7 @@ public class Creature : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Die()
     {
@@ -26,8 +25,15 @@ public class Creature : MonoBehaviour
     public int Attack()
     {
         State = 1;
+        //while(done());
         return ATK * 10;
     }
+    bool done()
+    {
+        if (State == 1) return true;
+        else return false;
+    }
+    
     public void GetDamage(int Damage)
     {
         HP -= Damage / DEF;
