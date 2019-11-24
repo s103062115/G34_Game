@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatusViewer : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class StatusViewer : MonoBehaviour
     {
         
     }
+
+
     private void OnGUI()
     {
         int offset = Screen.height / 2 - 50;

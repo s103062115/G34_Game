@@ -13,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - UI_canvas
+  - UI_background
+  - UI_text
   - 
   - 
   - 

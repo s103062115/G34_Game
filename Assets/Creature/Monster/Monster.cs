@@ -40,6 +40,13 @@ public class Monster : Creature
 
             sv.gameObject.active = true;
             sv.LoadData(this);
+            setInfo SP = GameObject.Find("StatusPanel").GetComponent<setInfo>();
+            SP.setName(Name);
+            string status = "HP: " + HP.ToString() + "\n"
+                          + "ATK: " + ATK.ToString() + "\n"
+                          + "DEF: " + DEF.ToString() + "\n"
+                          + "SPD: " + SPD.ToString();
+            SP.setStatus(status);
         }
     }
     public void OnMouseExit()
