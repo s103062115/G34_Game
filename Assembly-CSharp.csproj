@@ -84,7 +84,8 @@
     <Compile Include="Assets\System\SystemController.cs" />
     <Compile Include="Assets\System\TreasureViewer.cs" />
     <Compile Include="Assets\System\VerticalRoad.cs" />
-    <Compile Include="Assets\UI\setInfo.cs" />
+    <Compile Include="Assets\UI.cs" />
+    <Compile Include="Assets\UI\SetInfo.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\CameraController.cs" />
     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Scripts\FaceUpdate.cs" />

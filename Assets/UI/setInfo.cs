@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class setInfo : MonoBehaviour
+public class SetInfo : MonoBehaviour
 {
-    public GameObject nameObj, statusObj;
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (!nameObj) Debug.LogError("Please add name object to StatusPanel.");
-        if (!statusObj) Debug.LogError("Please add status object to StatusPanel.");
-    }
-
+    public GameObject nameObj, statusObj, countObj;
+    
     public void setName(string name)
     {
         nameObj.GetComponent<Text>().text = name;
@@ -20,5 +14,9 @@ public class setInfo : MonoBehaviour
     public void setStatus(string status)
     {
         statusObj.GetComponent<Text>().text = status;
+    }
+    public void setMoves(int moves)
+    {
+        countObj.GetComponent<Text>().text = moves.ToString();
     }
 }

@@ -13,7 +13,7 @@ public class Monster : Creature
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,21 +37,23 @@ public class Monster : Creature
         if (Physics.Raycast(mouseRay1, out rayHit, 1000f))
 
         {
-
-            sv.gameObject.active = true;
-            sv.LoadData(this);
-            setInfo SP = GameObject.Find("StatusPanel").GetComponent<setInfo>();
-            SP.setName(Name);
+            //sv.gameObject.active = true;
+            //sv.LoadData(this);
             string status = "HP: " + HP.ToString() + "\n"
                           + "ATK: " + ATK.ToString() + "\n"
                           + "DEF: " + DEF.ToString() + "\n"
                           + "SPD: " + SPD.ToString();
-            SP.setStatus(status);
+            UI UI = GameObject.Find("Canvas").GetComponent<UI>();
+            UI.setName(Name);
+            UI.setStatus(status);
+            UI.showStatusPanel();
         }
     }
     public void OnMouseExit()
     {
-        sv.gameObject.active = false;
+        //sv.gameObject.active = false;
+        UI UI = GameObject.Find("Canvas").GetComponent<UI>();
+        UI.hideStatusPanel();
     }
 
 }
