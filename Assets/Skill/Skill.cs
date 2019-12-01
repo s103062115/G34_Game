@@ -18,8 +18,10 @@ public class Skill : MonoBehaviour
     {
         
     }
-    public void Effect()
+    public virtual void Effect()
     {
-        
+        User.message = (User.Name + "使出" + Name);
+        User.anim.SetBool("skill", true);
     }
+
 }

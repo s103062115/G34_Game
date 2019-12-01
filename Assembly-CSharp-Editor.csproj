@@ -62,7 +62,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\unity-chan!\Unity-chan! Model\Editor\CreateLocatorHere.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\2DTools\Editor\TTTools2D.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\ClearWaterLevel.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\IncrementalSplatmapping.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\PlaceOnTerrain.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\RandomObjectMap.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\SplatMapGenerator.cs" />
+    <Compile Include="Assets\Tom's Terrain Tools\Editor\TerrainTools.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/user/G34_Game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

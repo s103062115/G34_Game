@@ -12,24 +12,61 @@ public class VerticalRoad : Road
     {
         
     }
+
+    private void FixedUpdate()
+    {
+        if (ready) count++;
+        if (count == 6)
+        {
+            ready = false;
+            count = 0;
+            h.Pause();
+            if (Vector3.Dot(h.gameObject.transform.localPosition - transform.localPosition, transform.TransformDirection(0, 0, 1)) > 0)
+            {
+                h.dir = 3;
+            }
+            else
+            {
+                h.dir = 1;
+            }
+            h.Resume();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Dot(other.transform.localPosition - transform.localPosition, transform.TransformDirection(0, 0, 1)) > 0)
+        if (h = other.gameObject.GetComponent<Hero>())
         {
-            dir = -0.1f;
+            if (h.dir == 0)
+            {
+                ready = true;
+                if (Vector3.Dot(other.transform.localPosition - transform.localPosition, transform.TransformDirection(0, 0, 1)) > 0)
+                {
+                    dir = -0.03f;
+                }
+                else dir = 0.03f;
+            }
         }
     }
 
     public override void OnTriggerStay(Collider other)
     {
-        if (dir < 0 && other.transform.position.z - transform.position.z > -1.5)
+        if (!ready)
         {
-            if (other.gameObject.GetComponent<Hero>())
-                other.transform.localPosition += transform.TransformDirection(0, 0, dir);
-        }else if (dir > 0 && other.transform.position.z - transform.position.z < 1.5)
-        {
-            if (other.gameObject.GetComponent<Hero>())
-                other.transform.localPosition += transform.TransformDirection(0, 0, dir);
+            if (dir < 0 && other.transform.position.z - transform.position.z > -1.5)
+            {
+                if (h = other.gameObject.GetComponent<Hero>())
+                {
+                    if (!h.dontwalk()) other.transform.localPosition += transform.TransformDirection(0, 0, dir);
+                }
+            }
+            else if (dir > 0 && other.transform.position.z - transform.position.z < 1.5)
+            {
+                if (h = other.gameObject.GetComponent<Hero>())
+                {
+                    if (!h.dontwalk()) other.transform.localPosition += transform.TransformDirection(0, 0, dir);
+                }
+            }
         }
     }
 }

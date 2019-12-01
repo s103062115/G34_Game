@@ -9,7 +9,9 @@ public class Mucus : Item
     void Start()
     {
         ID = 1;
+        Type = 1;
         Name = "黏液";
+        status = "使場上一隻怪物的SPD下降1。";
     }
 
     // Update is called once per frame
@@ -17,8 +19,14 @@ public class Mucus : Item
     {
         
     }
-    public override void Use(Hero User)
+    public override void Effect(Monster creature)
     {
-
+        //base.Effect(creature);
+        creature.MC.newMessage("使用了黏液");
+        creature.MC.newMessage(creature.Name+"的SPD下降了1");
+        creature.SPD -= 1;
+        creature.reStatus();
+        creature.SC.SetPart(-4);
     }
+
 }

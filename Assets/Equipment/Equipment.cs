@@ -9,7 +9,11 @@ public class Equipment : MonoBehaviour
     public int HP, ATK, DEF, SPD, MAT, MDF, MP;
     public int Type; // 武器 = 1, 盔甲 = 2, 鞋 = 3, 裝飾 = 4
     public Skill Skill;
-    public TreasureViewer tv;
+    public string status;
+    public SystemController SC;
+    public string Source;
+    UI UI;
+    Hero h;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +25,48 @@ public class Equipment : MonoBehaviour
     {
         
     }
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
 
 
-        Ray mouseRay1 = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit rayHit;
+        if(UI == null)UI = GameObject.Find("Canvas").GetComponent<UI>();
+        UI.showStatusPanel(0);
+        UI.setName(Name);
+        UI.setStatus(status);
 
-        if (Physics.Raycast(mouseRay1, out rayHit, 1000f) && !gameObject.GetComponent<Hero>())
-
-        {
-
-            tv.gameObject.active = true;
-            tv.LoadData(this);
-        }
     }
     public void OnMouseExit()
     {
-        tv.gameObject.active = false;
+        if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
+        UI.hideStatusPanel();
     }
+    public void ALLzero()
+    {
+        ID = 0;
+        Source = "";
+        HP = 0;
+        ATK = 0;
+        DEF = 0;
+        MAT = 0;
+        MDF = 0;
+        SPD = 0;
+        MP = 0;
+        Name = "未裝備";
+        status = "";
+    }
+    public void Copy(Equipment equipment)
+    {
+        ID = equipment.ID;
+        Source = equipment.GetType().ToString();
+        HP = equipment.HP;
+        ATK = equipment.ATK;
+        DEF = equipment.DEF;
+        MAT = equipment.MAT;
+        MDF = equipment.MDF;
+        SPD = equipment.SPD;
+        MP = equipment.MP;
+        Name = equipment.Name;
+        status = equipment.status;
+    }
+    
 }

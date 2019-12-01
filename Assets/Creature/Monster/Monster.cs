@@ -8,7 +8,12 @@ public class Monster : Creature
 
     public int Coin;
     public int Drop;
-    public StatusViewer sv;
+    public string text;
+    public UI UI;
+    bool detail;
+    public Skill skill;
+    public string status;
+    public static string clickToShowDetail = "\n點擊獲得更多資訊";
     //public GUI[] UI;
     // Start is called before the first frame update
     void Start()
@@ -27,24 +32,75 @@ public class Monster : Creature
         
 
     }
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
-        
-    
         Ray mouseRay1 = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayHit;
 
         if (Physics.Raycast(mouseRay1, out rayHit, 1000f))
 
         {
-
-            sv.gameObject.active = true;
-            sv.LoadData(this);
+            //UI UI = GameObject.Find("Canvas").GetComponent<UI>();
+            
+            
+            if (SC.GetPart() == -3)
+            {
+                UI.showStatusPanel(1);
+                UI.setName(Name);
+                UI.setStatus(status);
+            }
+            else
+            {
+                UI.showStatusPanel(0);
+                UI.setName(Name);
+                UI.setStatus(status + clickToShowDetail);
+            }
+            //statusP.active = true;
+            //sv.LoadData(this);
+           
+            
+            
         }
     }
     public void OnMouseExit()
     {
-        sv.gameObject.active = false;
+        //UI UI = GameObject.Find("Canvas").GetComponent<UI>();
+        UI.hideStatusPanel();
+    }
+    private void OnMouseDown()
+    {
+        if(SC.GetPart() != -3)
+        {
+            if (!detail)
+            {
+                UI.setStatus(text);
+            }
+            else UI.setStatus(status + clickToShowDetail);
+            detail = !detail;
+        }
+        else
+        {
+            SC.List[SC.standbyItem].Effect(this);
+        }
+        
     }
 
+    public virtual void Die()
+    {
+        SC.AddItem(Drop);
+        SC.Coin += Coin;
+        Destroy(gameObject);
+    }
+    /*public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }*/
+
+    public void reStatus()
+    {
+        status =  "HP: " + HP+ "\n"
+            + "ATK: " + ATK + "\n"
+            + "DEF: " + DEF + "\n"
+            + "SPD: " + SPD;
+    }
 }

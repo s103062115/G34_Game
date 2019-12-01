@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SystemController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,136 +11,329 @@ public class SystemController : MonoBehaviour
     public Hero hero;
     public int Coin;
     public Object obj;
+    public int iniMoves;
     public int rest;
     public GameObject mainc;
     public GameObject gamec;
+    public GameObject battlec;
+    public GameObject BattlePositionP;
+    public GameObject BattlePositionM;
+    public Equipment Weapon, Armor, Shoes, Accessory;
+    public GameObject stage;
+    public GameObject nextStage;
+    public bool heroTurnBegin, heroTurnEnd;
+    public bool monsTurnBegin, monsTurnEnd;
+    public MessageController MC;
+    public int standbyItem;
+    int stageN;
+    Vector3 pp;
+    Quaternion pr;
+    Monster mons;
+    public UI UI;
+    bool done;
+    public int part;
     void Start()
     {
+
         List = new Item[11];
-        rest = 3;
+        rest = iniMoves = 3;
+        part = 0;
+        //UI = GameObject.Find("Canvas").GetComponent<UI>();
+        //UI.setMoves(iniMoves);
+        stageN = 1;
+        nextStage = GameObject.Find("Stage" + (stageN+1));
+
     }
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        ReStatus();
+        if(part == 2)
+        {
+            if (heroTurnEnd)
+            {
+                if (!monsTurnBegin)
+                {
+                    monsTurnBegin = true;
+                    mons.turn();
+                }
+                else if (monsTurnEnd) oneTurn();
+
+            }else if (monsTurnEnd)
+            {
+                if (!heroTurnBegin)
+                {
+                    heroTurnBegin = true;
+                    hero.turn();
+                }
+            }
+        }else if(part == -2)
+        {
+            MC.newMessage("請選擇對象");
+            UI.hideHeroStatus();
+            part = -3;
+        }else if(part == -4)
+        {
+            //part = 0;
+            List[standbyItem] = null;
+            part = 0;
+            UI.hideStatusPanel();
+            //UI.showHeroStatus();
+            //part = -3;
+        }
     }
     public void Versus(Monster monster)
     {
-        for (int i = 0; hero.HP > 0 && monster.HP > 0; i++)
-        {
-            if (hero.SPD > monster.SPD)
-            {
-                monster.GetDamage(hero.Attack());
-                if (monster.HP <= 0) break;
-                hero.GetDamage(monster.Attack());
-            }
-            else
-            {
-                hero.GetDamage(monster.Attack());
-                if (hero.HP <= 0) break;
-                monster.GetDamage(hero.Attack());
-            }
+        mons = monster;
+        Invoke("startbattle", 0.5f);
 
-
-        }
-        if (monster.HP <= 0)
-        {
-            //hero.GetItem(monster.Drop);
-            AddItem(monster.Drop);
-            Coin += monster.Coin;
-            monster.Die();
-        }
-        else hero.Die();
+    }
+    void startbattle()
+    {
+        MC.newMessage(mons.Name+"出現了");
+        part = 2;
+        done = false;
+        gamec.SetActive(false);
+        battlec.SetActive(true);
+        pp = hero.gameObject.transform.position;
+        pr = hero.gameObject.transform.rotation;
+        hero.gameObject.transform.position = BattlePositionP.transform.position;
+        //mons.gameObject.transform.rotation = BattlePositionM.transform.rotation;
+        mons.gameObject.transform.position = BattlePositionM.transform.position;
+        hero.enemy = mons;
+        mons.enemy = hero;
+        oneTurn();
     }
 
+    void oneTurn()
+    {
+        monsTurnBegin = false;
+        monsTurnEnd = false;
+        heroTurnBegin = false;
+        heroTurnEnd = false;
+        if (hero.SPD >= mons.SPD)
+        {
+            heroTurnBegin = true;
+            hero.turn();
+        }
+        else
+        {
+            monsTurnBegin = true;
+            mons.turn();
+        }
+    }
+
+
+    public void battleend(bool playerwin)
+    {
+        part = 3;
+        heroTurnEnd = false;
+        monsTurnEnd = false;
+        heroTurnBegin = false;
+        monsTurnBegin = false;
+        if (playerwin)
+        {
+            if (mons.Coin > 0) MC.newMessage("獲得了" + mons.Coin + "GP");
+            //if (mons.Drop != null) MC.newMessage(hero.Name + "獲得" + mons);
+            part = 1;
+            battlec.SetActive(false);
+            hero.gameObject.transform.position = pp;
+            hero.gameObject.transform.rotation = pr;
+            gamec.SetActive(true);
+            hero.Resume();
+            mons.Die();
+        }
+        else
+        {
+
+        }
+    }
     public void UseItem(int Num)
     {
-        if (Num < ItemNumber)
+        if (List[Num] != null)
         {
-            List[Num].Use(hero);
-            Destroy(List[Num]);
+
             ItemNumber--;
-            
-            for (int i = Num; i < 10; i++)
+            UI.hideStatusPanel();
+            UI.SetHeroStatus();
+            standbyItem = Num;
+            List[Num].Use(hero);
+            //Destroy(List[Num]);
+            //List[Num] = null;
+            /*for (int i = Num; i < 10; i++)
             {
                 List[i] = List[i + 1];
-            }
+            }*/
         }
     }
 
     public void AddItem(int ID)
     {
-        if (ItemNumber == 10) ;//滿
-        else if (ID == 1)
+        Item newItem;
+        if (ItemNumber == 10) MC.newMessage("道具已滿");//滿
+        else if (ItemNumber < 10)
         {
-            List[ItemNumber] = this.gameObject.AddComponent<Mucus>();
+            if (ID == 1)
+            {
+                MC.newMessage("獲得道具：黏液");
+                if (!gameObject.GetComponent<Mucus>()) newItem = gameObject.AddComponent<Mucus>();
+                else newItem = null;
+            }
+            else newItem = null;
+            if (newItem != null)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    if (List[i] == null)
+                    {
+                        List[i] = newItem;
+                        break;
+                    }
+                    ItemNumber++;
+                }
+            }
         }
-        if (ItemNumber < 10) ItemNumber++;
     }
     
     public void PickEquipment(Equipment equipment)
     {
-        hero.Unequip(equipment.Type);
-        if (equipment.ID == 1) hero.Weapon = hero.gameObject.AddComponent<Sword>();
-        else if (equipment.ID == 2) hero.Weapon = hero.gameObject.AddComponent<IronSword>();
+        Unequip(equipment.Type);
+        /*if (equipment.ID == 1) Weapon = gameObject.AddComponent<Sword>();
+        else if (equipment.ID == 2) Weapon = gameObject.AddComponent<IronSword>();*/
+        //gameObject.AddComponent(equipment.GetType());
+        if(equipment.Type == 1)
+        {
+            MC.newMessage("獲得武器："+equipment.Name);
+            Weapon.Copy(equipment);
+        }else if (equipment.Type == 2)
+        {
+            MC.newMessage("獲得防具：" + equipment.Name);
+            Armor.Copy(equipment);
+        }else if (equipment.Type == 3)
+        {
+            MC.newMessage("獲得鞋子：" + equipment.Name);
+            Shoes.Copy(equipment);
+        }else if (equipment.Type == 4)
+        {
+            MC.newMessage("獲得飾品：" + equipment.Name);
+            Accessory.Copy(equipment);
+        }
+        if (equipment.HP > 0) hero.HP += equipment.HP;
+        /*if (equipment.Type == 1)
+        {
+            hero.anim.SetBool("walk", false);
+            hero.anim.SetBool("picksword", true);
+        }*/
 
-        //hero.ReStatus();
+        //ReStatus();
         Destroy(equipment.gameObject);
     }
-    private void OnMouseUpAsButton()
+    public void makeRoad(float posX, float posZ)
     {
         
-        Ray mouseRay1 = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float posX = 0.0f;
-        float posZ = 0.0f;
-        RaycastHit rayHit;
-        bool good = true;
-        if (Physics.Raycast(mouseRay1, out rayHit, 1000f))
-
-        {
-
-            //儲存滑鼠所點擊的座標
-
-            posX = rayHit.point.x;
-            if (posX > 6 || posX < -9) good = false;
-            if (rayHit.point.z > 0 && rayHit.point.z < 3) posZ = 1.5f;
-            else if (rayHit.point.z < 0 && rayHit.point.z > -3) posZ = -1.5f;
-            else if (rayHit.point.z < -3 && rayHit.point.z > -6) posZ = -4.5f;
-            else good = false;
-            
-        }
+        
         // Cubeプレハブを元に、インスタンスを生成、
-        if (good && rest > 0)
+        if (rest > 0 && part == 0)
         {
             Instantiate(obj, new Vector3(posX, 1.1f, posZ), Quaternion.identity);
             rest--;
+            UI.setMoves(rest);
         }
     }
-    private void OnGUI()
+    
+    public void gameStart()
     {
-        /*GUI.Box(new Rect(Screen.width - 260, 10, 250, 150), "Interaction");
-        GUI.Label(new Rect(Screen.width - 245, 30, 250, 30), "Up/Down Arrow : Go Forwald/Go Back");
-        GUI.Label(new Rect(Screen.width - 245, 50, 250, 30), "Left/Right Arrow : Turn Left/Turn Right");
-        GUI.Label(new Rect(Screen.width - 245, 70, 250, 30), "Hit Space key while Running : Jump");
-        GUI.Label(new Rect(Screen.width - 245, 90, 250, 30), "Hit Spase key while Stopping : Rest");
-        GUI.Label(new Rect(Screen.width - 245, 110, 250, 30), "Left Control : Front Camera");
-        GUI.Label(new Rect(Screen.width - 245, 130, 250, 30), "Alt : LookAt Camera");*/
-
-        //GUI.Box(new Rect(Screen.width - 110, 10, 100, 90), "Change Motion");
+        part = 1;
+        UI.gameObject.SetActive(false);
+        hero.transform.position = hero.transform.position - new Vector3(0.5f, 0, 0);
+        hero.anim.SetBool("walk", true);
+        mainc.SetActive(false);
+        gamec.SetActive(true);
+    }
+    public void SetPart(int a)
+    {
+        part = a;
+    }
+    public int GetPart()
+    {
+        return part;
+    }
+    public void ReStatus()
+    {
         
+        hero.MAX_HP = hero.Base_HP + Weapon.HP + Armor.HP + Shoes.HP + Accessory.HP;
+        hero.ATK = hero.Base_ATK + Weapon.ATK + Armor.ATK + Shoes.ATK + Accessory.ATK;
+        hero.DEF = hero.Base_DEF + Weapon.DEF + Armor.DEF + Shoes.DEF + Accessory.DEF;
+        hero.SPD = hero.Base_SPD + Weapon.SPD + Armor.SPD + Shoes.SPD + Accessory.SPD;
+        hero.MAT = hero.Base_MAT + Weapon.MAT + Armor.MAT + Shoes.MAT + Accessory.MAT;
+        hero.MDF = hero.Base_MDF + Weapon.MDF + Armor.MDF + Shoes.MDF + Accessory.MDF;
+        hero.MAX_MP = hero.Base_MP + Weapon.MP + Armor.MP + Shoes.MP + Accessory.MP;
+        if (hero.HP > hero.MAX_HP) hero.HP = hero.MAX_HP;
+        if (hero.MP > hero.MAX_MP) hero.MP = hero.MAX_MP;
+    }
+    public void Unequip(int Type)
+    {
 
-
-
-        if (GUI.Button(new Rect(Screen.width - 100, Screen.height - 40, 80, 20), "Start"))
+        if (Type == 1)
         {
-            //hero.gameObject.GetComponent<Collider>().enabled = true;
-            hero.transform.position = hero.transform.position - new Vector3(0.5f, 0, 0);
-            mainc.SetActive(false);
-            gamec.SetActive(true);
+            if (Weapon.ID != 0)
+            {
+                Weapon.ALLzero();
+            }
         }
-        GUI.skin.box.fontSize = 72;
-        GUI.Box(new Rect(Screen.width - 110, 10, 100, 90), rest.ToString());
+        else if (Type == 2)
+        {
+            if (Armor.ID != 0)
+            {
+                Armor.ALLzero();
+            }
+        }
+        else if (Type == 3)
+        {
+            if (Shoes.ID != 0)
+            {
+                Shoes.ALLzero();
+            }
+        }
+        else if (Type == 4)
+        {
+            if (Accessory.ID != 0)
+            {
+                Accessory.ALLzero();
+            }
+        }
+
+        //ReStatus();
+    }
+    public void gotoNext()
+    {
+        stageN++;
+
+
+        hero.gotoNext();
+        Vector3 offset = (nextStage.transform.position - stage.transform.position);
+
+        //hero.transform.position = new Vector3 (nextStage.transform.FindChild("StartLine").position.x,hero.transform.position.y,hero.transform.position.z);
+        mainc.transform.position += offset;
+        stage = nextStage;
+        gamec.SetActive(false);
+        mainc.SetActive(true);
+        SetPart(0);
+        nextStage = nextStage = GameObject.Find("Stage" + (stageN + 1));
+    }
+    public void gameover()
+    {
+        MC.transform.FindChild("Retry").gameObject.SetActive(true);
+        
+    }
+    public void retry()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+    public void gameclear()
+    {
+
     }
 }
