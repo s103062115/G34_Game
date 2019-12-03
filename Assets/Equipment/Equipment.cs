@@ -28,17 +28,22 @@ public class Equipment : MonoBehaviour
     public void OnMouseEnter()
     {
 
-
-        if(UI == null)UI = GameObject.Find("Canvas").GetComponent<UI>();
-        UI.showStatusPanel(0);
-        UI.setName(Name);
-        UI.setStatus(status);
+        if (SC.GetPart() == 0 || SC.GetPart() == -3)
+        {
+            if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
+            UI.showStatusPanel(0);
+            UI.setName(Name);
+            UI.setStatus(status);
+        }
 
     }
     public void OnMouseExit()
     {
-        if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
-        UI.hideStatusPanel();
+        if (SC.GetPart() == 0 || SC.GetPart() == -3)
+        {
+            if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
+            UI.hideStatusPanel();
+        }
     }
     public void ALLzero()
     {

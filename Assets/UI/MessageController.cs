@@ -7,6 +7,7 @@ public class MessageController : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text[] messages;
+    public GameObject clearM;
     Color alpha = new Color(0, 0, 0, 0.005f);
     
     void Start()
@@ -15,6 +16,7 @@ public class MessageController : MonoBehaviour
         messages[0] = transform.FindChild("Message1").gameObject.GetComponent<Text>();
         messages[1] = transform.FindChild("Message2").gameObject.GetComponent<Text>();
         messages[2] = transform.FindChild("Message3").gameObject.GetComponent<Text>();
+        clearM = transform.FindChild("ClearText").gameObject;
 
     }
 

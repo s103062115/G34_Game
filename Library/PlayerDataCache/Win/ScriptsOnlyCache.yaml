@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ChaosKnight
+    - Cure
     - DeathPoison
     - Equipment
     - Field
@@ -10,6 +11,7 @@ ScriptsOnlyBuild:
     - Hero
     - IronSword
     - KillerSpider
+    - MainMenu
     - MeltyCurse
     - MessageController
     - Mucus
@@ -28,13 +30,13 @@ ScriptsOnlyBuild:
     - Treasure
     - UI
     - VerticalRoad
+    - WarArmor
+    - randomParticleRotation
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -49,6 +51,61 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Outline
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/MainMenu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9730}
+    - Class: 114
+      Script: {instanceID: 9886}
+    - Class: 114
+      Script: {instanceID: 9926}
+    - Class: 114
+      Script: {instanceID: 10320}
+    - Class: 114
+      Script: {instanceID: 10392}
+    - Class: 114
+      Script: {instanceID: 10492}
+    - Class: 114
+      Script: {instanceID: 10700}
+    - Class: 114
+      Script: {instanceID: 11160}
+    - Class: 114
+      Script: {instanceID: 11470}
+    - Class: 114
+      Script: {instanceID: 11524}
+    - Class: 114
+      Script: {instanceID: 34582}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -105,63 +162,69 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9926}
     - Class: 114
-      Script: {instanceID: 9990}
+      Script: {instanceID: 9932}
     - Class: 114
-      Script: {instanceID: 10060}
+      Script: {instanceID: 9992}
     - Class: 114
-      Script: {instanceID: 10278}
+      Script: {instanceID: 10062}
     - Class: 114
-      Script: {instanceID: 10314}
+      Script: {instanceID: 10156}
     - Class: 114
-      Script: {instanceID: 10326}
+      Script: {instanceID: 10190}
     - Class: 114
-      Script: {instanceID: 10386}
+      Script: {instanceID: 10236}
     - Class: 114
-      Script: {instanceID: 10416}
+      Script: {instanceID: 10250}
     - Class: 114
-      Script: {instanceID: 10440}
+      Script: {instanceID: 10284}
     - Class: 114
-      Script: {instanceID: 10484}
+      Script: {instanceID: 10320}
     - Class: 114
-      Script: {instanceID: 10488}
+      Script: {instanceID: 10332}
     - Class: 114
-      Script: {instanceID: 10656}
+      Script: {instanceID: 10392}
     - Class: 114
-      Script: {instanceID: 10664}
+      Script: {instanceID: 10422}
     - Class: 114
-      Script: {instanceID: 10690}
+      Script: {instanceID: 10446}
     - Class: 114
-      Script: {instanceID: 10736}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10852}
+      Script: {instanceID: 10492}
     - Class: 114
-      Script: {instanceID: 10958}
+      Script: {instanceID: 10496}
     - Class: 114
-      Script: {instanceID: 11146}
+      Script: {instanceID: 10594}
     - Class: 114
-      Script: {instanceID: 11236}
+      Script: {instanceID: 10666}
     - Class: 114
-      Script: {instanceID: 11322}
+      Script: {instanceID: 10674}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 10700}
     - Class: 114
-      Script: {instanceID: 11508}
+      Script: {instanceID: 10746}
     - Class: 114
-      Script: {instanceID: 11558}
+      Script: {instanceID: 10796}
     - Class: 114
-      Script: {instanceID: 124556}
+      Script: {instanceID: 10864}
     - Class: 114
-      Script: {instanceID: 398612}
+      Script: {instanceID: 10912}
     - Class: 114
-      Script: {instanceID: 1232064}
+      Script: {instanceID: 10972}
     - Class: 114
-      Script: {instanceID: 1232078}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 1232084}
+      Script: {instanceID: 11250}
     - Class: 114
-      Script: {instanceID: 1265770}
+      Script: {instanceID: 11336}
     - Class: 114
-      Script: {instanceID: 1265782}
+      Script: {instanceID: 11470}
+    - Class: 114
+      Script: {instanceID: 11520}
+    - Class: 114
+      Script: {instanceID: 11524}
+    - Class: 114
+      Script: {instanceID: 11574}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -175,6 +238,10 @@ ScriptsOnlyBuild:
     - Class: 156
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -291,6 +358,12 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: 6ec660fbef7fc313817d6cce0ca664f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpiderTrap
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -381,10 +454,22 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 20a29372fc3d5f935fa8b6740ea1ae03
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RustyCurse
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 3d5e29d651dab9a4b9b4ff1120ade054
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChaosKnight
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -397,6 +482,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 1ff5f19ff966c37dbc4a4e46b851d3e2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cure
   - hash:
       serializedVersion: 2
       Hash: fd9929367df3e3bd067c3420e4e62afe
@@ -507,6 +598,12 @@ ScriptsOnlyBuild:
     className: Trap
   - hash:
       serializedVersion: 2
+      Hash: 164f2d49ebae2e925f2cdccb5fad74ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoulRing
+  - hash:
+      serializedVersion: 2
       Hash: c8ee1f5d88f874ee308bd72d44940424
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -519,7 +616,7 @@ ScriptsOnlyBuild:
     className: TerrainQualitySettings
   - hash:
       serializedVersion: 2
-      Hash: a5bb1488ef548552fdb5876543b72e74
+      Hash: 54ec69713016b3e0d218dc23204dede4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MessageController
@@ -565,6 +662,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: button_target
+  - hash:
+      serializedVersion: 2
+      Hash: 164f2d49ebae2e925f2cdccb5fad74ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WarArmor
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -633,6 +736,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 164f2d49ebae2e925f2cdccb5fad74ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shoes
+  - hash:
+      serializedVersion: 2
       Hash: 55069132e28193a881644549e07ad03a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -649,6 +758,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: 20a29372fc3d5f935fa8b6740ea1ae03
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MeltyCurse
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -861,6 +976,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 174d870b1c5175a3d536732a4d353e05
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Treasure
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -909,47 +1030,12 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 6ec660fbef7fc313817d6cce0ca664f8
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SpiderTrap
-  - hash:
-      serializedVersion: 2
-      Hash: 174d870b1c5175a3d536732a4d353e05
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Treasure
-  - hash:
-      serializedVersion: 2
-      Hash: 3d5e29d651dab9a4b9b4ff1120ade054
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ChaosKnight
-  - hash:
-      serializedVersion: 2
-      Hash: 20a29372fc3d5f935fa8b6740ea1ae03
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RustyCurse
-  - hash:
-      serializedVersion: 2
-      Hash: 20a29372fc3d5f935fa8b6740ea1ae03
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MeltyCurse
-  - hash:
-      serializedVersion: 2
-      Hash: 164f2d49ebae2e925f2cdccb5fad74ef
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SoulRing
-  - hash:
-      serializedVersion: 2
-      Hash: 164f2d49ebae2e925f2cdccb5fad74ef
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Shoes
+    className: MainMenu
   platform: 5
   scenePathNames:
+  - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
   playerPath: C:/Users/user/G34_Game/Build/G34_Game.exe

@@ -34,38 +34,35 @@ public class Monster : Creature
     }
     public void OnMouseEnter()
     {
-        Ray mouseRay1 = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit rayHit;
 
-        if (Physics.Raycast(mouseRay1, out rayHit, 1000f))
 
+        if (SC.GetPart() == -3)
         {
-            //UI UI = GameObject.Find("Canvas").GetComponent<UI>();
-            
-            
-            if (SC.GetPart() == -3)
-            {
-                UI.showStatusPanel(1);
-                UI.setName(Name);
-                UI.setStatus(status);
-            }
-            else
-            {
-                UI.showStatusPanel(0);
-                UI.setName(Name);
-                UI.setStatus(status + clickToShowDetail);
-            }
+
+            UI.showStatusPanel(1);
+            UI.setName(Name);
+            UI.setStatus(status);
+        }
+        else if(SC.GetPart() == 0)
+        {
+            UI.showStatusPanel(0);
+            UI.setName(Name);
+            UI.setStatus(status + clickToShowDetail);
+        }
             //statusP.active = true;
             //sv.LoadData(this);
            
             
             
-        }
+        
     }
     public void OnMouseExit()
     {
         //UI UI = GameObject.Find("Canvas").GetComponent<UI>();
-        UI.hideStatusPanel();
+        if (SC.GetPart() == 0 || SC.GetPart() == -3)
+        {
+            UI.hideStatusPanel();
+        }
     }
     private void OnMouseDown()
     {

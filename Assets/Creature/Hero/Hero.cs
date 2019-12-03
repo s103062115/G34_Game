@@ -18,7 +18,7 @@ public class Hero : Creature
     static int pickSState = Animator.StringToHash("Base Layer.PickSword");
     static int walkLState = Animator.StringToHash("Base Layer.WalkL");
     static int walkRState = Animator.StringToHash("Base Layer.WalkR");
-
+    int turn_n;
     // Start is called before the first frame update
     void Start()
     {
@@ -155,6 +155,7 @@ public class Hero : Creature
         if(collision.gameObject.GetComponent<Monster>())
         {
             Pause();
+            turn_n = 0;
             SC.Versus(collision.gameObject.GetComponent<Monster>()) ;
         }else if (collision.gameObject.GetComponent<Equipment>())
         {
@@ -197,5 +198,13 @@ public class Hero : Creature
     {
         dir = 0;
         //anim.SetBool("walk", false);
+    }
+    public override void turn()
+    {
+        turn_n++;
+        if (turn_n % 2 == 0 && Skill != null && SC.Armor.ID != 11)
+        {
+            Skill.Effect();
+        }else base.turn();
     }
 }

@@ -32,6 +32,7 @@ public class Goal : MonoBehaviour
             SC.UI.gameObject.SetActive(true);
             SC.rest = SC.iniMoves;
             SC.UI.setMoves(SC.iniMoves);
+            SC.SetPart(0);
         }
     }
 }

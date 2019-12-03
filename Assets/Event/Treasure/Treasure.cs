@@ -14,11 +14,11 @@ public class Treasure : Event
     Hero h;
     void Start()
     {
+        item = gameObject.GetComponent<Item>();
         anim = GetComponent<Animator>();
         Name = "寶箱";
-        item = gameObject.GetComponent<Item>();
-        if(item!=null)text = item.Name+"1個";
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
+        reText();
 
     }
 
@@ -41,5 +41,9 @@ public class Treasure : Event
         //base.Effect(hero);
         anim.SetBool("open", true);
         if(item!=null)SC.AddItem(item.ID);
+    }
+    public override void reText()
+    {
+        if (item != null) text = item.Name + "1個";
     }
 }

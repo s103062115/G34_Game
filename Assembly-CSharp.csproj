@@ -73,11 +73,13 @@
     <Compile Include="Assets\Creature\Monster\spider\SpiderKing.cs" />
     <Compile Include="Assets\Equipment\Accessory\SoulRing.cs" />
     <Compile Include="Assets\Equipment\Armor\SilverArmor.cs" />
+    <Compile Include="Assets\Equipment\Armor\WarArmor.cs" />
     <Compile Include="Assets\Equipment\Equipment.cs" />
     <Compile Include="Assets\Equipment\Nothing.cs" />
     <Compile Include="Assets\Equipment\Shoes\Shoes.cs" />
     <Compile Include="Assets\Equipment\Weapon\IronSword.cs" />
     <Compile Include="Assets\Equipment\Weapon\Sword.cs" />
+    <Compile Include="Assets\Event\Cure.cs" />
     <Compile Include="Assets\Event\Event.cs" />
     <Compile Include="Assets\Event\SpiderTrap\SpiderTrap.cs" />
     <Compile Include="Assets\Event\Trap\Trap.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\System\Field.cs" />
     <Compile Include="Assets\System\Goal.cs" />
     <Compile Include="Assets\System\Hcamera.cs" />
+    <Compile Include="Assets\System\MainMenu.cs" />
     <Compile Include="Assets\System\Road.cs" />
     <Compile Include="Assets\System\ShowDetail.cs" />
     <Compile Include="Assets\System\StatusViewer.cs" />
@@ -127,6 +130,7 @@
     <None Include="Assets\Cartoon Castle Building Kit\ReadMe.txt" />
     <None Include="Assets\Creature\Monster\ChaosKnight\Chaos Knight Warrior\readMe.txt" />
     <None Include="Assets\Particle Ribbon by Moonflower Carnivore\readme_Simple_Particle_Ribbon.txt" />
+    <None Include="Assets\Wispy Sky\ReadMe.txt" />
     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
     <None Include="Assets\UI\uipack_rpg_sheet.xml" />
     <Reference Include="Unity.Timeline.Editor">

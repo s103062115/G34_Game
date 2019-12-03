@@ -26,7 +26,7 @@ public class Event : MonoBehaviour
     public void OnMouseEnter()
     {
 
-
+        reText();
         if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
         UI.showStatusPanel(0);
         UI.setName(Name);
@@ -37,5 +37,9 @@ public class Event : MonoBehaviour
     {
         if (UI == null) UI = GameObject.Find("Canvas").GetComponent<UI>();
         UI.hideStatusPanel();
+    }
+    public virtual void reText()
+    {
+
     }
 }

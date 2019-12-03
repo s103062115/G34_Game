@@ -13,7 +13,7 @@ public class Trap : Event
     {
         ID = 1;
         Name = "捕獸夾";
-        text = "HP-5\nSPD-2\n用來捕捉野獸的陷阱。當然，有時候也會捕到人。";
+        text = "HP-5\nSPD-2\n用來捕捉野獸的陷阱。當然，會被捕到的不只有野獸。";
     }
 
     // Update is called once per frame

@@ -177,9 +177,9 @@ public class SystemController : MonoBehaviour
         {
             if (ID == 1)
             {
-                MC.newMessage("獲得道具：黏液");
+                MC.newMessage("獲得道具：史萊姆的黏液");
                 if (!gameObject.GetComponent<Mucus>()) newItem = gameObject.AddComponent<Mucus>();
-                else newItem = null;
+                else newItem = gameObject.GetComponent<Mucus>();
             }
             else newItem = null;
             if (newItem != null)
@@ -320,20 +320,26 @@ public class SystemController : MonoBehaviour
         stage = nextStage;
         gamec.SetActive(false);
         mainc.SetActive(true);
-        SetPart(0);
+        
         nextStage = nextStage = GameObject.Find("Stage" + (stageN + 1));
     }
     public void gameover()
     {
         MC.transform.FindChild("Retry").gameObject.SetActive(true);
-        
+        MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
+
     }
     public void retry()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+    public void backToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
     public void gameclear()
     {
-
+        MC.clearM.SetActive(true);
+        MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
     }
 }
