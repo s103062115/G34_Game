@@ -13,10 +13,10 @@ public class MessageController : MonoBehaviour
     void Start()
     {
         messages = new Text[3];
-        messages[0] = transform.FindChild("Message1").gameObject.GetComponent<Text>();
-        messages[1] = transform.FindChild("Message2").gameObject.GetComponent<Text>();
-        messages[2] = transform.FindChild("Message3").gameObject.GetComponent<Text>();
-        clearM = transform.FindChild("ClearText").gameObject;
+        messages[0] = transform.Find("Message1").gameObject.GetComponent<Text>();
+        messages[1] = transform.Find("Message2").gameObject.GetComponent<Text>();
+        messages[2] = transform.Find("Message3").gameObject.GetComponent<Text>();
+        clearM = transform.Find("ClearText").gameObject;
 
     }
 
