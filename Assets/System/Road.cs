@@ -40,17 +40,19 @@ public class Road : MonoBehaviour
     public virtual void OnTriggerStay(Collider other)
     {
         
-        if ((h = other.gameObject.GetComponent<Hero>()) && !ready)
+        if (other.tag == "Player" && !ready)
         {
             if(!h.dontwalk() && h.dir == 0)other.transform.localPosition += transform.TransformDirection(0, 0, dir);
             
         }
     }
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
-        if (h = other.gameObject.GetComponent<Hero>())
+        
+        if (other.tag == "Player")
         {
-            if(h.dir != 0) ready = true;
+            h = other.gameObject.GetComponent<Hero>();
+            if (h.dir != 0) ready = true;
             
         }
     }

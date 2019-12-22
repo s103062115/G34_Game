@@ -33,10 +33,11 @@ public class VerticalRoad : Road
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        if (h = other.gameObject.GetComponent<Hero>())
+        if (other.tag == "Player")
         {
+            h = other.gameObject.GetComponent<Hero>();
             if (h.dir == 0)
             {
                 ready = true;
@@ -51,7 +52,7 @@ public class VerticalRoad : Road
 
     public override void OnTriggerStay(Collider other)
     {
-        if (!ready)
+        if (!ready && other.tag == "Player")
         {
             if (dir < 0 && other.transform.position.z - transform.position.z > -1.5)
             {
