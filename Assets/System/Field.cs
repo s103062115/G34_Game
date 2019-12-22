@@ -6,9 +6,13 @@ public class Field : MonoBehaviour
 {
     // Start is called before the first frame update
     SystemController SC;
+    MessageController MC;
+    float[,] roadPos;
     void Start()
     {
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
+        MC = GameObject.Find("MessageController").GetComponent<MessageController>();
+        roadPos = new float[SC.iniMoves,2];
     }
     private void OnMouseUpAsButton()
     {
@@ -35,7 +39,21 @@ public class Field : MonoBehaviour
         // Cubeプレハブを元に、インスタンスを生成、
         if (good)
         {
-            SC.makeRoad(posX, posZ);
+            for(int i = 0; i < SC.iniMoves - SC.rest; i++)
+            {
+                if(roadPos[i,0] - posX < 0.5 && roadPos[i,0] - posX > -0.5)
+                {
+                    if(roadPos[i,1] - posZ < 4 && roadPos[i,1] - posZ > -4){
+                        MC.newMessage("與其他道路靠太近！");
+                        return;
+                    }
+                }
+            }
+            if(SC.makeRoad(posX, posZ))
+            {
+                roadPos[SC.iniMoves - SC.rest-1,0] = posX;
+                roadPos[SC.iniMoves - SC.rest-1,1] = posZ;
+            }
         }
     }
     // Update is called once per frame

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class UI : MonoBehaviour
         //Transform t = gameObject.GetComponent<Transform>();
         //StatusPanel = GameObject.Find("StatusPanel");
         //SC = GameObject.Find("SystemController").GetComponent<SystemController>();
-        ItemSlot = GameObject.FindGameObjectsWithTag("ItemSlot");
+        ItemSlot = GameObject.FindGameObjectsWithTag("ItemSlot").OrderBy(go => go.name).ToArray();
         for (int i = 0; i < 10; i++)
         {
             ItemSlot[i].SetActive(false);

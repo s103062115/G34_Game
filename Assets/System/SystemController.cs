@@ -230,7 +230,7 @@ public class SystemController : MonoBehaviour
         //ReStatus();
         Destroy(equipment.gameObject);
     }
-    public void makeRoad(float posX, float posZ)
+    public bool makeRoad(float posX, float posZ)
     {
         
         
@@ -240,7 +240,9 @@ public class SystemController : MonoBehaviour
             Instantiate(obj, new Vector3(posX, 1.1f, posZ), Quaternion.identity);
             rest--;
             UI.setMoves(rest);
+            return true;
         }
+        return false;
     }
     
     public void gameStart()
