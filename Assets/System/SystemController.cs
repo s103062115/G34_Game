@@ -327,8 +327,8 @@ public class SystemController : MonoBehaviour
     }
     public void gameover()
     {
-        MC.transform.Find("Retry").gameObject.SetActive(true);
-        MC.transform.Find("BackToMenu").gameObject.SetActive(true);
+        MC.transform.FindChild("Retry").gameObject.SetActive(true);
+        MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
 
     }
     public void retry()
@@ -342,6 +342,6 @@ public class SystemController : MonoBehaviour
     public void gameclear()
     {
         MC.clearM.SetActive(true);
-        MC.transform.Find("BackToMenu").gameObject.SetActive(true);
+        MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
     }
 }

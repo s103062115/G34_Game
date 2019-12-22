@@ -15,4 +15,12 @@ public class starRotate : MonoBehaviour
     {
         transform.Rotate(0, 20 * Time.deltaTime, 0);
     }
+    public void stand()
+    {
+        transform.Rotate(0, 0, -90);
+    }
+    public void lie()
+    {
+        transform.Rotate(0, 0, 90);
+    }
 }
