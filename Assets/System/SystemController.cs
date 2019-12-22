@@ -25,6 +25,7 @@ public class SystemController : MonoBehaviour
     public bool monsTurnBegin, monsTurnEnd;
     public MessageController MC;
     public int standbyItem;
+    private int star = 0;
     int stageN;
     Vector3 pp;
     Quaternion pr;
@@ -247,6 +248,8 @@ public class SystemController : MonoBehaviour
     
     public void gameStart()
     {
+        Star stars = GameObject.Find("Star").GetComponent<Star>();
+        stars.stand();
         part = 1;
         UI.gameObject.SetActive(false);
         hero.transform.position = hero.transform.position - new Vector3(0.5f, 0, 0);
@@ -344,4 +347,12 @@ public class SystemController : MonoBehaviour
         MC.clearM.SetActive(true);
         MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
     }
+
+    public void gainStar() {
+        star += 1;
+    }
+    public int getSartAmount() {
+        return star;
+    }
+
 }

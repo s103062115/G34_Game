@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2946466684479848683}
   - component: {fileID: 6919775403445802024}
-  - component: {fileID: 5899171750467839659}
+  - component: {fileID: 8813616127233109498}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5899171750467839659
+--- !u!114 &8813616127233109498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,9 +55,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2195616015279025446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ff86395406ddf498e0e7a6a8118ea3, type: 3}
+  m_Script: {fileID: 11500000, guid: a69239c75e49a254e84e25b856b048f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
+  Name: 
+  text: 
+  SC: {fileID: 0}
 --- !u!1 &5668514411504012486
 GameObject:
   m_ObjectHideFlags: 0
