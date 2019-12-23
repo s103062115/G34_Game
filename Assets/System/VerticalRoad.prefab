@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &2051241873742690611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3835919385691966990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: 15, z: 0}
 --- !u!1 &4939453197032365147
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +27,7 @@ GameObject:
   - component: {fileID: 4939453197032365145}
   - component: {fileID: 4939453197032365144}
   m_Layer: 0
-  m_Name: VerticalRoad 2
+  m_Name: VerticalRoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +41,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4939453197032365147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.168, y: 1.1, z: 1.5}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 3}
   m_Children:
   - {fileID: 5138111449256558161}
@@ -177,8 +190,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3078944643129136071, guid: b3492a1387adeed4b9c1008cb6b5ea34,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078944643129136071, guid: b3492a1387adeed4b9c1008cb6b5ea34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3492a1387adeed4b9c1008cb6b5ea34, type: 3}
+--- !u!1 &3835919385691966990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 207749718099815911, guid: b3492a1387adeed4b9c1008cb6b5ea34,
+    type: 3}
+  m_PrefabInstance: {fileID: 4024528250753688553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5138111449256558161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8113166820510227896, guid: b3492a1387adeed4b9c1008cb6b5ea34,

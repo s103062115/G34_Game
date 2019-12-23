@@ -9,6 +9,7 @@ TagManager:
   - TAZOFX
   - Boss
   - star
+  - disappearOnMove
   layers:
   - Default
   - TransparentFX

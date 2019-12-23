@@ -152,7 +152,11 @@ public class Hero : Creature
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<Monster>())
+        if (gameObject.transform.position.x < collision.gameObject.transform.position.x)
+        {
+            return;
+        }
+        else if(collision.gameObject.GetComponent<Monster>())
         {
             Pause();
             turn_n = 0;

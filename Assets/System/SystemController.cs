@@ -254,6 +254,12 @@ public class SystemController : MonoBehaviour
             Star s = star.GetComponent<Star>();
             s.stand();
         }
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("disappearOnMove");
+        foreach (GameObject obj in objs)
+        {
+            SetAlpha s = obj.GetComponent<SetAlpha>();
+            s.disappear();
+        }
         part = 1;
         UI.gameObject.SetActive(false);
         hero.transform.position = hero.transform.position - new Vector3(0.5f, 0, 0);
@@ -264,6 +270,7 @@ public class SystemController : MonoBehaviour
     public void SetPart(int a)
     {
         part = a;
+        
     }
     public int GetPart()
     {

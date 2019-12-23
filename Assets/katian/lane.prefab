@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   road: {fileID: 8822639793006393435, guid: 805c6332cb57ff440bca3b86d430a562, type: 3}
   laneID: 2
-  startPos: -6.5
-  distance: 1
+  startPos: -8.833333
+  distance: 1.3333334
   objs:
   - {fileID: 6207436852511482415, guid: 3442038be86526844b7d9f02de7b9b36, type: 3}
   - {fileID: 6207436852511482415, guid: 3442038be86526844b7d9f02de7b9b36, type: 3}

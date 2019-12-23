@@ -33,6 +33,19 @@ public class Goal : MonoBehaviour
             SC.rest = SC.iniMoves;
             SC.UI.setMoves(SC.iniMoves);
             SC.SetPart(0);
+
+            GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
+            foreach (GameObject star in stars)
+            {
+                Star s = star.GetComponent<Star>();
+                s.lie();
+            }
+            GameObject[] objs = GameObject.FindGameObjectsWithTag("disappearOnMove");
+            foreach (GameObject obj in objs)
+            {
+                SetAlpha s = obj.GetComponent<SetAlpha>();
+                s.appear();
+            }
         }
     }
 }
