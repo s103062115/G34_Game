@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class starRotate : MonoBehaviour
+public class Lane : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int laneID;
+    public float startPos;
+    public float distance;
+    public GameObject[] objs;
     void Start()
     {
         
@@ -13,14 +17,6 @@ public class starRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 20 * Time.deltaTime, 0);
-    }
-    public void stand()
-    {
-        transform.Rotate(0, 0, -90);
-    }
-    public void lie()
-    {
-        transform.Rotate(0, 0, 90);
+        
     }
 }

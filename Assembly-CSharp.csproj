@@ -88,8 +88,8 @@
     <Compile Include="Assets\Item\Item.cs" />
     <Compile Include="Assets\Item\Mucus\Mucus.cs" />
     <Compile Include="Assets\katian\autoTile.cs" />
+    <Compile Include="Assets\katian\Lane.cs" />
     <Compile Include="Assets\katian\Star.cs" />
-    <Compile Include="Assets\katian\starRotate.cs" />
     <Compile Include="Assets\Particle Ribbon by Moonflower Carnivore\Scripts\randomParticleRotation.cs" />
     <Compile Include="Assets\Particle Ribbon by Moonflower Carnivore\Scripts\ReverseNormals.cs" />
     <Compile Include="Assets\Particle Ribbon by Moonflower Carnivore\Scripts\rotation.cs" />
