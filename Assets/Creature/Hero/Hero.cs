@@ -156,7 +156,24 @@ public class Hero : Creature
         {
             return;
         }
-        else if(collision.gameObject.GetComponent<Monster>())
+        if(dir==0) // 直的走且左前右前無法轉彎
+        {
+            float heroX = gameObject.transform.position.x;
+            float heroZ = gameObject.transform.position.z;
+            GameObject[] paths = GameObject.FindGameObjectsWithTag("path");
+            foreach (GameObject path in paths)
+            {
+                float x = path.transform.position.x;
+                float deltaX = heroX - x - 0.35f;
+                if (deltaX > 0.3f || deltaX < -0.3f) continue;
+                float z = path.transform.position.z;
+                float deltaZ = heroZ - z;
+                if (deltaZ > 3 || deltaZ < -3) continue;
+                Debug.Log("x: "+x+" z:"+z+ "hx: " + heroX + " hz:" + heroZ);
+                return;
+            }
+        }
+        if(collision.gameObject.GetComponent<Monster>())
         {
             Pause();
             turn_n = 0;

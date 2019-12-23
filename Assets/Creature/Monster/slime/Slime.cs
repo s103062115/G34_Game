@@ -17,6 +17,7 @@ public class Slime : Monster
         Coin = 3;
         text = "被打倒後凝縮的黏液具有使其他生物行動遲緩的能力，常被作為道具使用。";
         reStatus();
+        MC = GameObject.Find("MessageController").GetComponent<MessageController>();
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
         UI = GameObject.Find("Canvas").GetComponent<UI>();
     }

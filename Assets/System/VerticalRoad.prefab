@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 4939453197032365144}
   m_Layer: 0
   m_Name: VerticalRoad
-  m_TagString: Untagged
+  m_TagString: path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

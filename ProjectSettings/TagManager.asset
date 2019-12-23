@@ -10,6 +10,7 @@ TagManager:
   - Boss
   - star
   - disappearOnMove
+  - path
   layers:
   - Default
   - TransparentFX
