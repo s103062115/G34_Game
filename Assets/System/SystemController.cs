@@ -245,11 +245,15 @@ public class SystemController : MonoBehaviour
         }
         return false;
     }
-    
+
     public void gameStart()
     {
-        Star stars = GameObject.Find("Star").GetComponent<Star>();
-        stars.stand();
+        GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
+        foreach (GameObject star in stars)
+        { 
+            Star s = star.GetComponent<Star>();
+            s.stand();
+        }
         part = 1;
         UI.gameObject.SetActive(false);
         hero.transform.position = hero.transform.position - new Vector3(0.5f, 0, 0);

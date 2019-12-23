@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 2390470251215109907}
   - component: {fileID: 4125624940966083207}
   m_Layer: 0
-  m_Name: Cha_Slime
+  m_Name: Cha_Slime_onLane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8825446497003619258}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.82, y: 1, z: -2.911}
+  m_LocalPosition: {x: -2.82, y: 0, z: -2.911}
   m_LocalScale: {x: 1.7471, y: 1.7471, z: 1.7471}
   m_Children:
   - {fileID: 8825446497003397016}
@@ -235,8 +235,23 @@ MonoBehaviour:
   MAT: 0
   MDF: 0
   MP: 0
+  anim: {fileID: 0}
+  damage: 0
+  enemy: {fileID: 0}
+  SC: {fileID: 0}
+  moveEnd: 0
+  reactionEnd: 0
+  currentState: 0
+  newState: 0
+  MC: {fileID: 0}
+  message: 
+  extraMessage: 
   Coin: 0
   Drop: 0
+  text: 
+  UI: {fileID: 0}
+  skill: {fileID: 0}
+  status: 
 --- !u!65 &4125624940966083207
 BoxCollider:
   m_ObjectHideFlags: 0

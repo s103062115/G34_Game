@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4365316707022001535}
   - component: {fileID: 4365316707022001520}
   m_Layer: 0
-  m_Name: Trap
+  m_Name: Trap_onLane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365316707022001534}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.58, y: 1.021401, z: -2.9442015}
+  m_LocalPosition: {x: -8.58, y: 0, z: -2.9442015}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 8876101570866847580}

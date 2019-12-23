@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6919775403445802024}
   - component: {fileID: 8813616127233109498}
   m_Layer: 0
-  m_Name: Star
-  m_TagString: Untagged
+  m_Name: Star_onLane
+  m_TagString: star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 82
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2195616015279025446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: 2.09, z: 5.58}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -2.44, y: 0.8, z: 5.58}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 312391353249689291}
   m_Father: {fileID: 0}
