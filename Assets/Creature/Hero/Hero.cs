@@ -9,8 +9,8 @@ public class Hero : Creature
     public int dir;
     //public Equipment Weapon, Armour, Shoes, Accessory;
     public Skill Skill;
-    public int MAX_HP,MAX_MP;
-    public int Base_HP, Base_ATK, Base_DEF, Base_SPD, Base_MAT, Base_MDF, Base_MP;
+    public int MAX_HP = 11, MAX_MP = 10;
+    public int Base_HP = 11, Base_ATK = 10, Base_DEF = 10, Base_SPD = 10, Base_MAT = 0, Base_MDF = 0, Base_MP = 10;
     
     //public object System;
     static int walkState = Animator.StringToHash("Base Layer.Walk");
@@ -23,11 +23,13 @@ public class Hero : Creature
     void Start()
     {
         anim = GetComponent<Animator>();
-        HP = MAX_HP = Base_HP = 11;
-        ATK = Base_ATK = 10;
-        DEF = Base_DEF = 10;
-        SPD = Base_SPD = 10;
-        MP = MAX_MP = Base_MP = 10;
+        HP = MAX_HP;
+        MP = MAX_MP;
+        //MAX_HP = Base_HP = 11;
+        //ATK = Base_ATK = 10;
+        //DEF = Base_DEF = 10;
+        //SPD = Base_SPD = 10;
+        //MAX_MP = Base_MP = 10;
         dir = 0;
         Name = "玩家";
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();

@@ -11,8 +11,8 @@ public class Star : Event
     {
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
         ID = 5;
-        Name = "星星";
-        text = "很漂亮的星星，如果能收集到很多的話心情會很好。";
+        if(Name == "") Name = "星星";
+        if(text == "") text = "很漂亮的星星，如果能收集到很多的話心情會很好。";
     }
 
     void Update()

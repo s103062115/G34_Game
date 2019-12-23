@@ -9,9 +9,9 @@ public class Shoes : Equipment
     {
         Type = 3;
         ID = 20;
-        Name = "普通的鞋子";
-        SPD = 3;
-        status = "SPD+3\n";
+        if(Name == "") Name = "普通的鞋子";
+        if(SPD == 0) SPD = 3;
+        if(status == "") status = "SPD+3\n";
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
     }
 

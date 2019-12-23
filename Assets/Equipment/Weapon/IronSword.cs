@@ -9,9 +9,9 @@ public class IronSword : Equipment
     {
         Type = 1;
         ID = 2;
-        Name = "鋼鐵劍";
-        ATK = 10;
-        status = "ATK+10";
+        if(Name == "") Name = "鋼鐵劍";
+        if(ATK == 0) ATK = 10;
+        if(status == "") status = "ATK+10";
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
     }
 

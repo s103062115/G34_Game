@@ -10,9 +10,9 @@ public class Sword : Equipment
     {
         Type = 1;
         ID = 1;
-        Name = "普通的劍";
-        ATK = 5;
-        status = "ATK+5";
+        if(Name == "") Name = "普通的劍";
+        if(ATK == 0) ATK = 5;
+        if(status == "") status = "ATK+5";
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
     }
 
