@@ -101,7 +101,7 @@ public class Creature : MonoBehaviour
         message = Name+"發動攻擊";
         anim.SetBool("atk", true);
         //State = 1;
-        enemy.damage = ATK * 10;
+        enemy.damage = ATK;
         //Invoke("GiveDamage", 1f);
     }
     public virtual void turn()
@@ -122,9 +122,9 @@ public class Creature : MonoBehaviour
     
     public void GetDamage()
     {
-        if (damage > 0)
+        if ((damage-DEF) > 0)
         {
-            if(damage > 1)message = ("造成" + damage / DEF + "點傷害");
+            if((damage-DEF) > 0)message = ("造成" + (damage - DEF) + "點傷害");
             anim.SetBool("damage", true);
         }
         else
@@ -133,7 +133,7 @@ public class Creature : MonoBehaviour
             if (gameObject.tag == "Player") SC.monsTurnEnd = true;
             else SC.heroTurnEnd = true;
         }
-        HP -= damage / DEF;
+        HP -= (damage - DEF);
         if (HP <= 0)
         {
             

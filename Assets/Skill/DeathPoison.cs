@@ -22,7 +22,7 @@ public class DeathPoison : Skill
         if (!(User.enemy.GetType().ToString() == "Hero" && User.SC.Armor.ID == 10))
         {
 
-            User.enemy.damage = User.enemy.HP * User.enemy.DEF;
+            User.enemy.damage = User.enemy.HP + User.enemy.DEF;
 
         }
         else User.enemy.damage = 0;
