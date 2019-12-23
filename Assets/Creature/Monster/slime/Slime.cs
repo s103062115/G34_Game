@@ -18,7 +18,7 @@ public class Slime : Monster
         if (Name == "") Name = "史萊姆";
         if (Drop == 0) Drop = 1;
         //if (Coin == 0) Coin = 3;
-        text = "被打倒後凝縮的黏液具有使其他生物行動遲緩的能力，常被作為道具使用。";
+        if(text == "") text = "被打倒後凝縮的黏液具有使其他生物行動遲緩的能力，常被作為道具使用。";
         reStatus();
         MC = GameObject.Find("MessageController").GetComponent<MessageController>();
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();

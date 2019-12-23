@@ -37,7 +37,8 @@ public class SystemController : MonoBehaviour
     {
 
         List = new Item[11];
-        rest = iniMoves = 3;
+        if (rest == 0) rest = 3;
+        iniMoves = rest;
         part = 0;
         //UI = GameObject.Find("Canvas").GetComponent<UI>();
         //UI.setMoves(iniMoves);
