@@ -18,7 +18,8 @@ public class MainMenu : MonoBehaviour
     }
     public void SelectStage(int s)
     {
-        if (s == 1) UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        if (s == 1) UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene2");
+        if (s == 2) UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
         else MC.newMessage("尚未開放!");
     }
 }
