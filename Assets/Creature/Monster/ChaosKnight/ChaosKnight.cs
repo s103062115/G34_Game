@@ -10,7 +10,7 @@ public class ChaosKnight : Monster
     void Start()
     {
         anim = GetComponent<Animator>();
-        HP = 50;
+        HP = 40;
         ATK = 15;
         DEF = 15;
         SPD = 12;
@@ -34,8 +34,8 @@ public class ChaosKnight : Monster
     public override void turn()
     {
         turn_n++;
-        if (turn_n == 2) skill.Effect();
-        else if (turn_n == 4) skill2.Effect();
+        if (turn_n == 4) skill.Effect();
+        else if (turn_n == 2) skill2.Effect();
         else base.turn();
     }
 }

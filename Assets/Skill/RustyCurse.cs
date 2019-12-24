@@ -22,7 +22,7 @@ public class RustyCurse : Skill
         base.Effect();
         if (!((h = User.enemy.gameObject.GetComponent<Hero>())&& User.SC.Armor.ID == 10))
         {
-            User.enemy.damage = 1;
+            User.enemy.damage = 0;
             if (h != null)
             {
                 if (h.Base_SPD < 3) h.Base_SPD = 0;
@@ -40,7 +40,7 @@ public class RustyCurse : Skill
             User.enemy.message = User.enemy.Name+"的ATK‧SPD下降了3";
 
         }
-        else User.enemy.damage = 0;
+        else User.enemy.damage = -1;
 
     }
 }

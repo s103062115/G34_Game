@@ -25,7 +25,7 @@ public class DeathPoison : Skill
             User.enemy.damage = User.enemy.HP + User.enemy.DEF;
 
         }
-        else User.enemy.damage = 0;
+        else User.enemy.damage = -1;
 
     }
 }

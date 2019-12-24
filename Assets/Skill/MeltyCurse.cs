@@ -22,21 +22,24 @@ public class MeltyCurse : Skill
         base.Effect();
         if (!((h = User.enemy.gameObject.GetComponent<Hero>()) && User.SC.Armor.ID == 10))
         {
-            User.enemy.damage = 1;
+            User.enemy.damage = 0;
+            User.enemy.message = User.enemy.Name + "的DEF下降了5";
             if (h != null)
             {
                 if (h.Base_DEF < 5) h.Base_DEF = 0;
                 else h.Base_DEF -= 5;
+                h.SC.Unequip(2);
+               
             }
             else
             {
                 if (User.enemy.DEF < 5) User.enemy.DEF = 0;
                 else User.enemy.DEF -= 5;
             }
-            User.enemy.message = User.enemy.Name + "的DEF下降了5";
+            User.enemy.extraMessage = User.enemy.Name + "的防具消滅了";
 
         }
-        else User.enemy.damage = 0;
+        else User.enemy.damage = -1;
 
     }
 }

@@ -126,14 +126,20 @@ public class Creature : MonoBehaviour
         {
             if((damage-DEF) > 0)message = ("造成" + (damage - DEF) + "點傷害");
             anim.SetBool("damage", true);
+            HP -= (damage - DEF);
         }
-        else
+        else if(damage == -1)
         {
             MC.newMessage("但是沒有效果");
             if (gameObject.tag == "Player") SC.monsTurnEnd = true;
             else SC.heroTurnEnd = true;
         }
-        HP -= (damage - DEF);
+        else
+        {
+            MC.newMessage("沒有造成傷害");
+            anim.SetBool("damage", true);
+        }
+        
         if (HP <= 0)
         {
             
