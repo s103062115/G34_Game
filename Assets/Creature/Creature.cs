@@ -82,7 +82,7 @@ public class Creature : MonoBehaviour
                 if (gameObject.tag == "Player") SC.monsTurnEnd = true;
                 else SC.heroTurnEnd = true;
             }
-            else if ((currentState == deadState))
+            else if ((currentState == deadState) && gameObject.tag != "Boss")
             {
                 if (gameObject.tag == "Player") SC.gameover();
                 else
