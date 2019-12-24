@@ -88,6 +88,7 @@
     <Compile Include="Assets\Item\Item.cs" />
     <Compile Include="Assets\Item\Mucus\Mucus.cs" />
     <Compile Include="Assets\katian\autoTile.cs" />
+    <Compile Include="Assets\katian\Buff.cs" />
     <Compile Include="Assets\katian\Lane.cs" />
     <Compile Include="Assets\katian\PathManager.cs" />
     <Compile Include="Assets\katian\SetAlpha.cs" />
