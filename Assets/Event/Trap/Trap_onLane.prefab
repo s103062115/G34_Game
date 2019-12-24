@@ -65,6 +65,8 @@ MonoBehaviour:
   text: 
   Left: {fileID: 4682988957626089946}
   Right: {fileID: 4477208651119670081}
+  HpDecrease: 5
+  SpdDecrease: 0
 --- !u!1 &4477208651119670081
 GameObject:
   m_ObjectHideFlags: 0
