@@ -117,7 +117,7 @@ public class UI : MonoBehaviour
     }
     public void setMoves(int v)
     {
-        M.setMoves(v);
+        Moves.GetComponent<SetInfo>().setMoves(v);
     }
     public void showMoves()
     {

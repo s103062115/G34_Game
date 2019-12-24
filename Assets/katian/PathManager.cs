@@ -24,7 +24,8 @@ public class PathManager : MonoBehaviour
     public void setStage(int s)
     {
         operations = MovesOfStages[s - 1];
-        used = UsedOfStages[s - 1] = 0;
+        UsedOfStages[s - 1] = 0;
+        used = 0;
         myUI.setMoves(operations);
     }
     public void insertButton(int stage, int row, int col, bool ison, Vector3 xyz)
