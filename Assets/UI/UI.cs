@@ -12,8 +12,11 @@ public class UI : MonoBehaviour
     SetInfo SP, M;
     public SystemController SC;
     bool show;
+    PathManager PM;
     void Start()
     {
+
+        PM = GameObject.Find("PathManager").GetComponent<PathManager>();
         //Transform t = gameObject.GetComponent<Transform>();
         //StatusPanel = GameObject.Find("StatusPanel");
         //SC = GameObject.Find("SystemController").GetComponent<SystemController>();
@@ -45,7 +48,7 @@ public class UI : MonoBehaviour
         //show = true;
         SP = StatusPanel.GetComponent<SetInfo>();
         M = Moves.GetComponent<SetInfo>();
-        M.setMoves(SC.rest);
+        M.setMoves(PM.MovesOfStages[0]);
         SetHeroStatus();
         //hideMoves();
         hideStatusPanel();

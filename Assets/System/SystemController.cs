@@ -11,8 +11,8 @@ public class SystemController : MonoBehaviour
     public Hero hero;
     public int Coin;
     public Object obj;
-    public int iniMoves;
-    public int rest;
+    //public int iniMoves;
+    //public int rest;
     public GameObject mainc;
     public GameObject gamec;
     public GameObject battlec;
@@ -24,6 +24,7 @@ public class SystemController : MonoBehaviour
     public bool heroTurnBegin, heroTurnEnd;
     public bool monsTurnBegin, monsTurnEnd;
     public MessageController MC;
+    PathManager PM;
     public int standbyItem;
     private int star = 0;
     int stageN;
@@ -37,16 +38,21 @@ public class SystemController : MonoBehaviour
     {
 
         List = new Item[11];
-        if (rest == 0) rest = 3;
-        iniMoves = rest;
+        //if (iniMoves == 0) iniMoves = 3;
+        //rest = iniMoves;
         part = 0;
         //UI = GameObject.Find("Canvas").GetComponent<UI>();
         //UI.setMoves(iniMoves);
         stageN = 1;
         nextStage = GameObject.Find("Stage" + (stageN+1));
+        PM = GameObject.Find("PathManager").GetComponent<PathManager>();
+        PM.setStage(1);
 
     }
-
+    /*public int getIniMoves()
+    {
+        return iniMoves;
+    }*/
 
     // Update is called once per frame
     void FixedUpdate()
@@ -237,18 +243,19 @@ public class SystemController : MonoBehaviour
         
         
         // Cubeプレハブを元に、インスタンスを生成、
-        if (rest > 0 && part == 0)
-        {
+        //if (rest > 0 && part == 0)
+        //{
             Instantiate(obj, new Vector3(posX, 1.1f, posZ), Quaternion.identity);
-            rest--;
-            UI.setMoves(rest);
-            return true;
-        }
+            //rest--;
+            //UI.setMoves(rest);
+            //return true;
+        //}
         return false;
     }
 
     public void gameStart()
     {
+        PM.buildAllPath();
         GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
         foreach (GameObject star in stars)
         { 
@@ -339,6 +346,12 @@ public class SystemController : MonoBehaviour
         mainc.SetActive(true);
         
         nextStage = nextStage = GameObject.Find("Stage" + (stageN + 1));
+    }
+    public void nextStageReady()
+    {
+        PM.setStage(stageN);
+
+
     }
     public void gameover()
     {

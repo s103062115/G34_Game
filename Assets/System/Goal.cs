@@ -30,10 +30,10 @@ public class Goal : MonoBehaviour
 
             other.gameObject.GetComponent<Hero>().Pause();
             SC.UI.gameObject.SetActive(true);
-            SC.rest = SC.iniMoves;
-            SC.UI.setMoves(SC.iniMoves);
+            //SC.rest = SC.iniMoves;
+            //SC.UI.setMoves(SC.iniMoves);
             SC.SetPart(0);
-
+            SC.nextStageReady();
             GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
             foreach (GameObject star in stars)
             {

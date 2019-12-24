@@ -12,8 +12,9 @@ public class Field : MonoBehaviour
     {
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
         MC = GameObject.Find("MessageController").GetComponent<MessageController>();
-        roadPos = new float[SC.iniMoves,2];
+        //roadPos = new float[SC.iniMoves,2];
     }
+    /*
     private void OnMouseUpAsButton()
     {
 
@@ -61,4 +62,5 @@ public class Field : MonoBehaviour
     {
         
     }
+    */
 }
