@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class SystemController : MonoBehaviour
 {
@@ -356,6 +356,10 @@ public class SystemController : MonoBehaviour
     }
     public void gameclear()
     {
+        Text clearMessage = MC.clearM.GetComponent<Text>();
+        clearMessage.text = "任務完成\n";
+        for (int x = 0; x < star; x++)
+            clearMessage.text += " ★ ";
         MC.clearM.SetActive(true);
         MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
     }
