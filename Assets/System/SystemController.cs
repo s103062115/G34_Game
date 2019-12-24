@@ -356,6 +356,7 @@ public class SystemController : MonoBehaviour
     }
     public void gameclear()
     {
+        Debug.Log("clear");
         MC.clearM.SetActive(true);
         MC.transform.FindChild("BackToMenu").gameObject.SetActive(true);
     }
