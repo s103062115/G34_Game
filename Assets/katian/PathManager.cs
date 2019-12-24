@@ -7,8 +7,8 @@ public class PathManager : MonoBehaviour
 {
     UI myUI;
     SystemController SC;
-    Vector3[,,] pathXYZ;
-    bool[,,] on;
+    Vector3[,,] pathXYZ = new Vector3[4, 4, 15];
+    bool[,,] on = new bool[4, 4, 15];
     [Tooltip("input the amout of moves that each stage can use. (blank = 0)")]
     public int[] MovesOfStages;
     int operations;
@@ -19,16 +19,12 @@ public class PathManager : MonoBehaviour
     {
         myUI = GameObject.Find("Canvas").GetComponent<UI>();
         SC = GameObject.Find("SystemController").GetComponent<SystemController>();
-        //operations = SC.getIniMoves();
-        pathXYZ = new Vector3[4, 4, 15];
-        on = new bool[4, 4, 15];
         UsedOfStages = new int[MovesOfStages.Length];
     }
     public void setStage(int s)
     {
         operations = MovesOfStages[s - 1];
         used = UsedOfStages[s - 1] = 0;
-        Debug.Log("moves: " + operations);
         myUI.setMoves(operations);
     }
     public void insertButton(int stage, int row, int col, bool ison, Vector3 xyz)
@@ -39,12 +35,12 @@ public class PathManager : MonoBehaviour
 
     internal bool buildPath(Vector3Int ID, bool undo) // op is build
     {
-        if (undo && used == 0) Debug.LogError("Can't undo this.");
+        //if (undo && used == 0) Debug.LogError("Can't undo this.");
         if (!undo && used == operations) return false; // no moves available
         if (ID.y > 0)
             if (on[ID.x, ID.y - 1, ID.z]) return false;
         if (on[ID.x, ID.y + 1, ID.z]) return false;
-        if (on[ID.x, ID.y, ID.z]) Debug.LogError("Wrong move!");
+        //if (on[ID.x, ID.y, ID.z]) Debug.LogError("Wrong move!");
         on[ID.x, ID.y, ID.z] = true;
         if (undo) used--;
         else used++;
@@ -54,9 +50,9 @@ public class PathManager : MonoBehaviour
 
     internal bool deletePath(Vector3Int ID, bool undo)
     {
-        if (undo && used == 0) Debug.LogError("Can't undo this.");
+        //if (undo && used == 0) Debug.LogError("Can't undo this.");
         if (!undo && used == operations) return false; // no moves available
-        if (!on[ID.x, ID.y, ID.z]) Debug.LogError("Wrong move!");
+        //if (!on[ID.x, ID.y, ID.z]) Debug.LogError("Wrong move!");
         on[ID.x, ID.y, ID.z] = false;
         if (undo) used--;
         else used++;
