@@ -69,6 +69,7 @@
     <Compile Include="Assets\Creature\Monster\pumpking\ActionController.cs" />
     <Compile Include="Assets\Creature\Monster\pumpking\Pumpking.cs" />
     <Compile Include="Assets\Creature\Monster\slime\Slime.cs" />
+    <Compile Include="Assets\Creature\Monster\slime\SlimeWithBuff.cs" />
     <Compile Include="Assets\Creature\Monster\spider\KillerSpider.cs" />
     <Compile Include="Assets\Creature\Monster\spider\SpiderKing.cs" />
     <Compile Include="Assets\Equipment\Accessory\SoulRing.cs" />
